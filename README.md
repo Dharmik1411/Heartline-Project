@@ -1,19 +1,22 @@
 # Heartline-Project
 
-# Go Auth API
+# Simple Auth API (Go + PostgreSQL)
 
-A simple REST API for User Registration, Login, Profile Management with JWT Authentication built using Golang and PostgreSQL.
+Beginner-friendly REST API project built with Golang and PostgreSQL.
+Supports user registration, login, profile fetching, and profile updating with JWT-based authentication.
 
-## Tech Stack
-- Golang (Go)
-- PostgreSQL
-- JWT Authentication
-- Gorilla Mux Router
-- Bcrypt Password Hashing
+## Endpoints
+- `POST /register`
+- `POST /login`
+- `GET /profile` (protected)
+- `PATCH /profile` (protected)
 
-## Features
-- User Registration (passwords hashed)
-- User Login (returns JWT token)
-- Profile View (Protected)
-- Profile Update (Protected, email not updatable)
+## How to Run
+1. Create PostgreSQL DB and table (`users`).
+2. Update DB connection in `config/config.go`.
+3. Run:
+```bash
+go mod tidy
+go run main.go
+
 
