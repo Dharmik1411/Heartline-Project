@@ -11,6 +11,11 @@ Supports user registration, login, profile fetching, and profile updating with J
 - `GET /profile` (protected)
 - `PATCH /profile` (protected)
 
+### Database Setup
+Run the SQL script in `database.sql` to create the `users` table:
+```bash
+psql -U postgres -d simple_auth -f database.sql
+
 ## How to Run
 1. Create PostgreSQL DB and table (`users`).
 2. Update DB connection in `config/config.go`.
