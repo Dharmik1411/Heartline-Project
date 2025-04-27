@@ -15,15 +15,15 @@ Supports user registration, login, profile fetching, and profile updating with J
 Run the SQL script in `database.sql` to create the `users` table:
 ```bash
 psql -U postgres -d simple_auth -f database.sql
-
-## How to Run
+```
+### How to Run
 1. Create PostgreSQL DB and table (`users`).
 2. Update DB connection in `config/config.go`.
 3. Run:
 ```bash
 go mod tidy
 go run main.go
-
+```
 
 
 
