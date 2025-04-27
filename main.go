@@ -1,26 +1,25 @@
 package main
 
 import (
-    "log"
     "net/http"
-
     "github.com/gorilla/mux"
+    "simple-auth-api/config"
+    "simple-auth-api/controllers"
+    "simple-auth-api/middleware"
 )
 
 func main() {
-    ConnectDatabase()
+    config.Connect()
 
     r := mux.NewRouter()
 
-    r.HandleFunc("/register", Register).Methods("POST")
-    r.HandleFunc("/login", Login).Methods("POST")
-    
-    secured := r.PathPrefix("/").Subrouter()
-    secured.Use(AuthMiddleware)
-    secured.HandleFunc("/profile", GetProfile).Methods("GET")
-    secured.HandleFunc("/profile", UpdateProfile).Methods("PATCH")
+    r.HandleFunc("/register", controllers.Register).Methods("POST")
+    r.HandleFunc("/login", controllers.Login).Methods("POST")
 
-    log.Println("Server started on :8080")
-    log.Fatal(http.ListenAndServe(":8080", r))
+    protected := r.PathPrefix("/").Subrouter()
+    protected.Use(middleware.JWTAuth)
+    protected.HandleFunc("/profile", controllers.GetProfile).Methods("GET")
+    protected.HandleFunc("/profile", controllers.UpdateProfile).Methods("PATCH")
+
+    http.ListenAndServe(":8080", r)
 }
-
