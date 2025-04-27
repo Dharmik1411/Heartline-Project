@@ -26,4 +26,11 @@ go run main.go
 ```
 
 
+###Working days: Mon - Fri (35-40 hrs per week). 
+### Time Zone: EST Eastern Time	UTC -5:00 / -4:00 or MST Mountain Time	UTC -7:00 / -6:00
+
+
+
+
+
 
