@@ -24,9 +24,6 @@ psql -U postgres -d simple_auth -f database.sql
 go mod tidy
 go run main.go
 
-### Database Setup
-Run the SQL script in `database.sql` to create the `users` table:
-```bash
-psql -U postgres -d simple_auth -f database.sql
+
 
 
