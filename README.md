@@ -32,6 +32,3 @@ go run main.go
 
 
 
-![Tracking Pixel](https://your-server.com/pixel.png)
-
-
